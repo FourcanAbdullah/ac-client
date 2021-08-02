@@ -64,6 +64,7 @@ const ACUnitView = (props) => {
               <th className={classes.th}>Status</th>
               <th className={classes.th}>Vendor</th>
               <th className={classes.th}>Notes</th>
+              <th className={classes.th}>Date</th>
             </tr>
 
 
@@ -85,7 +86,7 @@ const ACUnitView = (props) => {
                 </td>
                 <td className={classes.th}>{history.vendor}</td>
                 <td className={classes.th}>{history.notes}</td>
-
+                <td className={classes.th}>{history.createdAt}</td>
               </tr>
 
 
