@@ -3,68 +3,100 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import NewStudentView from '../views/NewStudentView';
-import { addStudentThunk } from '../../store/thunks';
+import { addHistoryThunk, addACUnitThunk, fetchAllACUnitsThunk } from '../../store/thunks';
 
 
 class NewStudentContainer extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-          firstname: "", 
-          lastname: "", 
-          campusId: null, 
-          redirect: false, 
-          redirectId: null
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      unit: '',
+      location: '',
+      status: '',
+      vendor: '',
+      notes: '',
+      redirect: false,
+      redirectId: null
+    };
+  }
+  componentDidMount() {
+    //this.props.fetchAllACUnits()
+  }
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleSubmit = async event => {
+    event.preventDefault();
+
+    let ac = {
+      unit: this.state.unit,
+      location: this.state.location,
+      status: this.state.status,
+      vendor: this.state.vendor,
+      notes: this.state.notes,
+    };
+
+    let acto = await this.props.addACUnit(ac)
+
+    let ac2 = {
+      unit: this.state.unit,
+      location: this.state.location,
+      status: this.state.status,
+      vendor: this.state.vendor,
+      notes: this.state.notes,
+      // ACUnitId: acto.id
+    };
+    //this.handleAddHistory(acto)
+    // await this.props.addHistory(ac)
+
+    this.setState({
+      unit: '',
+      location: '',
+      status: '',
+      vendor: '',
+      notes: '',
+      redirect: true,
+      //redirectId: acto.id
+    });
+    // console.log(acto)
+
+
+  }
+
+
+  componentWillUnmount() {
+    this.setState({ redirect: false }); ///, redirectId: null
+
+  }
+  com
+  render() {
+    if (this.state.redirect) {
+      return (<Redirect to={`/`} />)
     }
-
-    handleChange = event => {
-      this.setState({
-        [event.target.name]: event.target.value
-      });
-    }
-
-    handleSubmit = async event => {
-        event.preventDefault();
-
-        let student = {
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            campusId: this.state.campusId
-        };
-        
-        let newStudent = await this.props.addStudent(student);
-
-        this.setState({
-          firstname: "", 
-          lastname: "", 
-          campusId: null, 
-          redirect: true, 
-          redirectId: newStudent.id
-        });
-    }
-
-    componentWillUnmount() {
-        this.setState({redirect: false, redirectId: null});
-    }
-
-    render() {
-        if(this.state.redirect) {
-          return (<Redirect to={`/student/${this.state.redirectId}`}/>)
-        }
-        return (
-          <NewStudentView 
-            handleChange = {this.handleChange} 
-            handleSubmit={this.handleSubmit}      
-          />
-        );
-    }
+    return (
+      <NewStudentView
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+      />
+    );
+  }
 }
+const mapState = (state) => {
+  return {
+    allACUnits: state.allACUnits,
+    //acunit: state.acunit
+  };
+};
 
 const mapDispatch = (dispatch) => {
-    return({
-        addStudent: (student) => dispatch(addStudentThunk(student)),
-    })
+  return ({
+    addHistory: (history) => dispatch(addHistoryThunk(history)),
+    addACUnit: (acunit) => dispatch(addACUnitThunk(acunit)),
+    fetchAllACUnits: () => dispatch(fetchAllACUnitsThunk())
+  })
 }
 
-export default connect(null, mapDispatch)(NewStudentContainer);
+export default connect(mapState, mapDispatch)(NewStudentContainer);

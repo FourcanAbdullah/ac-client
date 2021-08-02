@@ -1,35 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchStudentThunk } from "../../store/thunks";
+import { fetchACUnitThunk, fetchAllACUnitsThunk, fetchAllHistoryThunk } from "../../store/thunks";
+
 import { StudentView } from "../views";
 
 class StudentContainer extends Component {
-  componentDidMount() {
-    //getting student ID from url
-    this.props.fetchStudent(this.props.match.params.id);
-  }
+    componentDidMount() {
+        //getting campus ID from url
+        this.props.fetchAllACUnits()
+        this.props.fetchAllHistory()
+    }
 
-  render() {
-    return (
-      <StudentView 
-        student={this.props.student}
-      />
-    );
-  }
+    render() {
+        return (
+            <StudentView
+                allACUnits={this.props.allACUnits}
+                allHistory={this.props.allHistory}
+            />
+        );
+    }
 }
 
 // map state to props
 const mapState = (state) => {
-  return {
-    student: state.student,
-  };
+    return {
+        allACUnits: state.allACUnits,
+        allHistory: state.allHistory
+    };
 };
 
 // map dispatch to props
 const mapDispatch = (dispatch) => {
-  return {
-    fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
-  };
+    return {
+        fetchAllACUnits: () => dispatch(fetchAllACUnitsThunk()),
+        fetchAllHistory: () => dispatch(fetchAllHistoryThunk())
+    };
 };
 
 export default connect(mapState, mapDispatch)(StudentContainer);

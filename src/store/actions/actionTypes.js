@@ -1,16 +1,20 @@
 // ACTION TYPES;
 
-//All campuses
-export const FETCH_ALL_CAMPUSES = "FETCH_ALL_CAMPUSES";
+//All ACUNITs
+export const FETCH_ALL_ACUNITS = "FETCH_ALL_ACUNITS";
 
-//Single campus
-export const FETCH_CAMPUS = "FETCH_CAMPUS";
+export const ADD_ACUNIT = "ADD_ACUNIT";
+export const DELETE_ACUNIT = "DELETE_ACUNIT";
+export const EDIT_ACUNIT = "EDIT_ACUNIT";
 
-//All students
-export const FETCH_ALL_STUDENTS = "FETCH_ALL_STUDENTS";
-export const ADD_STUDENT = "ADD_STUDENT";
-export const DELETE_STUDENT = "DELETE_STUDENT";
-export const EDIT_STUDENT = "EDIT_STUDENT";
+//Single ACUNIT
+export const FETCH_ACUNIT = "FETCH_ACUNIT";
 
-//Single student
-export const FETCH_STUDENT = "FETCH_STUDENT";
+//All HISTORY
+export const FETCH_ALL_HISTORY = "FETCH_ALL_HISTORY";
+export const ADD_HISTORY = "ADD_HISTORY";
+export const DELETE_HISTORY = "DELETE_HISTORY";
+export const EDIT_HISTORY = "EDIT_HISTORY";
+
+//Single HISTORY
+export const FETCH_HISTORY = "FETCH_HISTORY";

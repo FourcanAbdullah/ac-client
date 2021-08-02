@@ -1,13 +1,13 @@
 import * as at from "../actions/actionTypes";
 
 // REDUCER;
-const allCampuses = (state = [], action) => {
+const allACUnits = (state = [], action) => {
   switch (action.type) {
-    case at.FETCH_ALL_CAMPUSES:
+    case at.FETCH_ALL_ACUNITS:
       return action.payload;
     default:
       return state;
   }
 };
 
-export default allCampuses;
+export default allACUnits;

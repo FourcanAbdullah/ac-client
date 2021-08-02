@@ -6,55 +6,79 @@ import * as at from './actionTypes';
  */
 
 // All campuses
-export const fetchAllCampuses = (campuses) => {
+export const fetchAllACUnits = (acunits) => {
   return {
-    type: at.FETCH_ALL_CAMPUSES,
-    payload: campuses,
+    type: at.FETCH_ALL_ACUNITS,
+    payload: acunits,
   };
 };
 
-//Single campus
-export const fetchCampus = (campus) => {
+//adding campuses
+export const addACUnit = (acunit) => {
   return {
-    type: at.FETCH_CAMPUS,
-    payload: campus,
+    type: at.ADD_ACUNIT,
+    payload: acunit,
+  };
+};
+
+//deleting campus
+export const deleteACUnit = (ACUnitId) => {
+  return {
+    type: at.DELETE_ACUNIT,
+    payload: ACUnitId
+  }
+}
+
+//editing a campus
+export const editACUnit = (acunit) => {
+  return {
+    type: at.EDIT_ACUNIT,
+    payload: acunit
+  }
+}
+
+//Single campus
+export const fetchACUnit = (acunit) => {
+  return {
+    type: at.FETCH_ACUNIT,
+    payload: acunit,
   };
 };
 
 //All students
-export const fetchAllStudents = (students) => {
+export const fetchAllHistory = (histories) => {
   return {
-    type: at.FETCH_ALL_STUDENTS,
-    payload: students,
+    type: at.FETCH_ALL_HISTORY,
+    payload: histories,
   };
 };
 
-export const addStudent = (student) => {
+export const addHistory = (history) => {
   return {
-    type: at.ADD_STUDENT,
-    payload: student,
+    type: at.ADD_HISTORY,
+    payload: history,
   };
 };
 
-export const deleteStudent = (studentId) => {
-  return {
-    type: at.DELETE_STUDENT,
-    payload: studentId,
-  };
-};
+// export const deleteStudent = (studentId) => {
+//   return {
+//     type: at.DELETE_STUDENT,
+//     payload: studentId,
+//   };
+// };
 
 
-export const editStudent = (student) => {
-  return {
-    type: at.EDIT_STUDENT,
-    payload: student,
-  };
-};
+// export const editStudent = (student) => {
+//   return {
+//     type: at.EDIT_STUDENT,
+//     payload: student,
+//   };
+// };
 
 //Single student
-export const fetchStudent = (student) => {
+export const fetchHistory = (history) => {
   return {
-    type: at.FETCH_STUDENT,
-    payload: student,
+    type: at.FETCH_HISTORY,
+    payload: history,
   };
 };
