@@ -28,10 +28,29 @@ const useStyles = makeStyles(theme => ({
 
 const ACUnitView = (props) => {
   const classes = useStyles();
-  const { allACUnits, allHistory } = props;
-
+  const { acunit } = props;
+  // if (!acunit.length) {
+  //   return (
+  //     <div>
+  //       <p>There are no History.</p>
+  //       {/* <Link to={`student/new`}>
+  //         <button>Add New Student</button>
+  //       </Link> */}
+  //     </div>
+  //   );
+  // }
   return (
     <div>
+      {/* <h1>{acunit.name}</h1>
+      <p>{acunit.description}</p>
+      <ul>
+        {acunit.histories.map(history => {
+          let name = history.unit + " " + history.location;
+          return (
+            <li key={history.id}>{name}</li>
+          );
+        })}
+      </ul> */}
 
 
 
@@ -47,32 +66,31 @@ const ACUnitView = (props) => {
               <th className={classes.th}>Notes</th>
             </tr>
 
-            {allHistory.map(history => {
-              console.log("Here Lies History null")
-              console.log(history.ACUnitId)
-              let ACID = history.ACUnitId
-              if (!ACID) {
-                return (
-                  <tr className={classes.tr} key={history.id}>
 
-                    <td className={classes.th}>
+            {acunit.histories.map((history) => (
+              // <div>key={history.id}
 
-                      <p>{history.unit}</p>
 
-                    </td>
-                    <td className={classes.th}>
-                      {history.location}
-                    </td>
-                    <td className={classes.th}>
-                      {history.status}
-                    </td>
-                    <td className={classes.th}>{history.vendor}</td>
-                    <td className={classes.th}>{history.notes}</td>
+              <tr className={classes.tr} key={history.id}>
+                <td className={classes.th}>
 
-                  </tr>
-                )
-              }
-            })}
+                  <p>{history.unit}</p>
+
+                </td>
+                <td className={classes.th}>
+                  {history.location}
+                </td>
+                <td className={classes.th}>
+                  {history.status}
+                </td>
+                <td className={classes.th}>{history.vendor}</td>
+                <td className={classes.th}>{history.notes}</td>
+
+              </tr>
+
+
+
+            ))}
           </tbody>
         </table>
       </div >

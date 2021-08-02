@@ -1,17 +1,17 @@
-import { FETCH_STUDENT } from "../actions/actionTypes";
+import { FETCH_HISTORY } from "../actions/actionTypes";
 
 const initialState = {
-  campus: {},
+  ACUnit: {},
 };
 
 // REDUCER;
-const student = (state=initialState, action) => {
+const history = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_STUDENT:
+    case FETCH_HISTORY:
       return action.payload;
     default:
       return state;
   }
 };
 
-export default student;
+export default history;
