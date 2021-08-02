@@ -31,7 +31,16 @@ const AllACUnitsView = (props) => {
   const classes = useStyles();
   let increment = 1
   if (!allACUnits.length) {
-    return <div>There are no ACUnits.</div>;
+    return (<div>There are no ACUnits.
+      <Link to={`/newstudent`}>
+
+        <button >Add A/C Unit</button>
+      </Link  >
+      <Link to={`/student`}>
+        <button >Dicommissioned A/C Units History</button>
+      </Link>
+    </div>
+    );
   }
   //handleHistory()
 
@@ -48,6 +57,7 @@ const AllACUnitsView = (props) => {
             <th className={classes.th}>Status</th>
             <th className={classes.th}>Vendor</th>
             <th className={classes.th}>Notes</th>
+            <th className={classes.th}>Date</th>
           </tr>
           {allACUnits.map((acunits) => (
             // <div>key={acunits.id}
@@ -70,13 +80,18 @@ const AllACUnitsView = (props) => {
               </td>
               <td className={classes.th}>{acunits.vendor}</td>
               <td className={classes.th}>{acunits.notes}</td>
+              <td className={classes.th}>{acunits.updatedAt}</td>
               <td className={classes.th}>
                 {/* <Link to={`/campus/${acunits.id}`}>
                   <p>{acunits.unit}</p>
                 </Link> */}
                 <button style={{ color: 'white', backgroundColor: 'blue' }} onClick={async () => {
-                  await deleteACUnit(acunits.id);
-                  fetchAllACUnits()
+
+                  // eslint-disable-next-line no-restricted-globals
+                  if (confirm("Are you sure you want to delete the AC?")) { // true if OK is pressed
+                    await deleteACUnit(acunits.id);
+                    fetchAllACUnits()
+                  }
                 }}>Delete</button>
               </td>
               <td className={classes.th}>
