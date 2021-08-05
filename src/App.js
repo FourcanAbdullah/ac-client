@@ -4,12 +4,10 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 //Components
 import {
-  HomePageContainer,
   ACUnitContainer,
-  StudentContainer,
+  HistoryContainer,
   AllACUnitsContainer,
-  AllStudentsContainer,
-  NewStudentContainer
+  NewACUnitContainer
 } from './components/containers';
 
 // if you create separate components for adding/editing 
@@ -21,11 +19,11 @@ const App = () => {
     <div className="App">
       <Switch>
         <Route exact path="/" component={AllACUnitsContainer} />
-        {/* <Route exact path="/campuses" component={AllACUnitsContainer} /> */}
-        <Route exact path="/campus/:id" component={ACUnitContainer} />
-        {/* <Route exact path="/students" component={AllStudentsContainer} /> */}
-        <Route exact path="/newstudent" component={NewStudentContainer} />
-        <Route exact path="/student" component={StudentContainer} />
+
+        <Route exact path="/acunit/:id" component={ACUnitContainer} />
+
+        <Route exact path="/newunit" component={NewACUnitContainer} />
+        <Route exact path="/history" component={HistoryContainer} />
 
       </Switch>
     </div>

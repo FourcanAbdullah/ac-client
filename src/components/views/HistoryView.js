@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+// import PropTypes from "prop-types";
+// import { Link } from "react-router-dom";
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+// import Typography from '@material-ui/core/Typography';
+// import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import { deleteACUnit } from "../../store/actions/actionCreators";
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -26,9 +26,9 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const ACUnitView = (props) => {
+const HistoryView = (props) => {
   const classes = useStyles();
-  const { allACUnits, allHistory } = props;
+  const { allHistory } = props;
 
   return (
     <div>
@@ -47,9 +47,8 @@ const ACUnitView = (props) => {
               <th className={classes.th}>Notes</th>
             </tr>
 
-            {allHistory.map(history => {
-              console.log("Here Lies History null")
-              console.log(history.ACUnitId)
+            {allHistory.map((history) => {
+
               let ACID = history.ACUnitId
               if (!ACID) {
                 return (
@@ -70,7 +69,10 @@ const ACUnitView = (props) => {
                     <td className={classes.th}>{history.notes}</td>
 
                   </tr>
-                )
+                );
+              }
+              else {
+                return null;
               }
             })}
           </tbody>
@@ -83,4 +85,4 @@ const ACUnitView = (props) => {
 };
 
 
-export default ACUnitView;
+export default HistoryView;

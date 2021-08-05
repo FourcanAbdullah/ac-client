@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const NewStudentView = (props) => {
+const NewACUnitView = (props) => {
   const { handleChange, handleSubmit } = props;
   const classes = useStyles();
 
@@ -55,6 +55,7 @@ const NewStudentView = (props) => {
           <br />
           <label style={{ color: '#11153e', fontWeight: 'bold' }}>New Status: </label>
           <select name="status" id="status" onChange={(e) => handleChange(e)}>
+            <option hidden disabled selected value> -- select an option -- </option>
             <option value="100% operational">100% operational</option>
             <option value="100% not operational">100% not operational</option>
             <option value="Fan working only">Fan working Only</option>
@@ -91,4 +92,4 @@ const NewStudentView = (props) => {
   )
 }
 
-export default NewStudentView;
+export default NewACUnitView;
