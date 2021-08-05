@@ -2,11 +2,11 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import NewStudentView from '../views/NewStudentView';
+import NewACUnitView from '../views/NewACUnitView';
 import { addHistoryThunk, addACUnitThunk, fetchAllACUnitsThunk } from '../../store/thunks';
 
 
-class NewStudentContainer extends Component {
+class NewACUnitContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,18 +39,9 @@ class NewStudentContainer extends Component {
       notes: this.state.notes,
     };
 
-    let acto = await this.props.addACUnit(ac)
+    await this.props.addACUnit(ac)
 
-    let ac2 = {
-      unit: this.state.unit,
-      location: this.state.location,
-      status: this.state.status,
-      vendor: this.state.vendor,
-      notes: this.state.notes,
-      // ACUnitId: acto.id
-    };
-    //this.handleAddHistory(acto)
-    // await this.props.addHistory(ac)
+
 
     this.setState({
       unit: '',
@@ -59,16 +50,16 @@ class NewStudentContainer extends Component {
       vendor: '',
       notes: '',
       redirect: true,
-      //redirectId: acto.id
+
     });
-    // console.log(acto)
+
 
 
   }
 
 
   componentWillUnmount() {
-    this.setState({ redirect: false }); ///, redirectId: null
+    this.setState({ redirect: false });
 
   }
   com
@@ -77,7 +68,7 @@ class NewStudentContainer extends Component {
       return (<Redirect to={`/`} />)
     }
     return (
-      <NewStudentView
+      <NewACUnitView
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
       />
@@ -87,7 +78,7 @@ class NewStudentContainer extends Component {
 const mapState = (state) => {
   return {
     allACUnits: state.allACUnits,
-    //acunit: state.acunit
+
   };
 };
 
@@ -99,4 +90,4 @@ const mapDispatch = (dispatch) => {
   })
 }
 
-export default connect(mapState, mapDispatch)(NewStudentContainer);
+export default connect(mapState, mapDispatch)(NewACUnitContainer);

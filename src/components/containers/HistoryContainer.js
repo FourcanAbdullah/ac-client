@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchACUnitThunk, fetchAllACUnitsThunk, fetchAllHistoryThunk } from "../../store/thunks";
+import { fetchAllACUnitsThunk, fetchAllHistoryThunk } from "../../store/thunks";
 
-import { StudentView } from "../views";
+import { HistoryView } from "../views";
 
-class StudentContainer extends Component {
+class HistoryContainer extends Component {
     componentDidMount() {
-        //getting campus ID from url
+
         this.props.fetchAllACUnits()
         this.props.fetchAllHistory()
     }
 
     render() {
         return (
-            <StudentView
+            <HistoryView
                 allACUnits={this.props.allACUnits}
                 allHistory={this.props.allHistory}
             />
@@ -37,4 +37,4 @@ const mapDispatch = (dispatch) => {
     };
 };
 
-export default connect(mapState, mapDispatch)(StudentContainer);
+export default connect(mapState, mapDispatch)(HistoryContainer);

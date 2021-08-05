@@ -60,22 +60,22 @@ export const addHistory = (history) => {
   };
 };
 
-// export const deleteStudent = (studentId) => {
+// export const deleteHistory = (history) => {
 //   return {
-//     type: at.DELETE_STUDENT,
-//     payload: studentId,
+//     type: at.DELETE_HISTORY,
+//     payload: history,
 //   };
 // };
 
 
-// export const editStudent = (student) => {
+// export const editHistory = (history) => {
 //   return {
-//     type: at.EDIT_STUDENT,
-//     payload: student,
+//     type: at.EDIT_HISTORY,
+//     payload: history,
 //   };
 // };
 
-//Single student
+//Single history 
 export const fetchHistory = (history) => {
   return {
     type: at.FETCH_HISTORY,
