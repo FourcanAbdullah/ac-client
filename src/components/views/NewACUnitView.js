@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+//form for adding a new ac
 
 const useStyles = makeStyles(() => ({
   formContainer: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const NewACUnitView = (props) => {
-  const { handleChange, handleSubmit } = props;
+  const { handleChange, handleSubmit, allStatus, allVendor, allManagement } = props;
   const classes = useStyles();
 
   return (
@@ -43,7 +44,7 @@ const NewACUnitView = (props) => {
             New A/C Unit
           </Typography>
         </div>
-        <form style={{ textAlign: 'center' }} onSubmit={(e) => handleSubmit(e)}>
+        <form style={{ textAlign: 'left', marginLeft: '27%' }} onSubmit={(e) => handleSubmit(e)}>
           <label style={{ color: '#11153e', fontWeight: 'bold' }}>Unit: </label>
           <input type="text" name="unit" onChange={(e) => handleChange(e)} />
           <br />
@@ -53,18 +54,44 @@ const NewACUnitView = (props) => {
           <input type="text" name="location" onChange={(e) => handleChange(e)} />
           <br />
           <br />
+          <label style={{ color: '#11153e', fontWeight: 'bold' }}> Your Name: </label>
+          <input type="text" name="user" onChange={(e) => handleChange(e)} />
+          <br />
+          <br />
+          <label style={{ color: '#11153e', fontWeight: 'bold' }}>Managed By: </label>
+          <select name="ManagementId" id="ManagementId" defaultValue="" onChange={(e) => handleChange(e)}>
+            <option disabled value=""> -- select an option -- </option>
+            {allManagement.map((management) => {
+              return (
+                <option value={management.id} key={management.id}>{management.management}</option>
+              );
+
+            })}
+          </select>
+          <br />
+          <br />
           <label style={{ color: '#11153e', fontWeight: 'bold' }}>New Status: </label>
-          <select name="status" id="status" onChange={(e) => handleChange(e)}>
-            <option hidden disabled selected value> -- select an option -- </option>
-            <option value="100% operational">100% operational</option>
-            <option value="100% not operational">100% not operational</option>
-            <option value="Fan working only">Fan working Only</option>
-            <option value="Cool air is coming out">Cool air is coming out</option>
+          <select name="StatusId" id="StatusId" defaultValue="" onChange={(e) => handleChange(e)}>
+            <option disabled value=""> -- select an option -- </option>
+            {allStatus.map((status) => {
+              return (
+                <option value={status.id} key={status.id}>{status.status}</option>
+              );
+
+            })}
           </select>
           <br />
           <br />
           <label style={{ color: '#11153e', fontWeight: 'bold' }}>Vendor: </label>
-          <input type="text" name="vendor" onChange={(e) => handleChange(e)} />
+          <select name="VendorId" id="VendorId" defaultValue="" onChange={(e) => handleChange(e)}>
+            <option disabled value=""> -- select an option -- </option>
+            {allVendor.map((vendor) => {
+              return (
+                <option value={vendor.id} key={vendor.id}>{vendor.vendor}</option>
+              );
+
+            })}
+          </select>
           <br />
           <br />
 
@@ -80,7 +107,7 @@ const NewACUnitView = (props) => {
 
 
 
-          <Button variant="contained" color="primary" type="submit">
+          <Button variant="contained" style={{ color: 'white', backgroundColor: '#003366', marginLeft: '20%', fontWeight: 'bold' }} type="submit">
             Submit
           </Button>
           <br />

@@ -106,3 +106,54 @@ export const fetchHistoryThunk = id => async dispatch => {
     console.error(err);
   }
 };
+
+export const fetchAllStatusThunk = () => async (dispatch) => {
+  try {
+    let res = await axios.get(`/api/statuses`);
+    dispatch(ac.fetchAllStatus(res.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+export const fetchStatusThunk = id => async dispatch => {
+  try {
+    let res = await axios.get(`/api/statuses/${id}`);
+    dispatch(ac.fetchStatus(res.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+export const fetchAllVendorThunk = () => async (dispatch) => {
+  try {
+    let res = await axios.get(`/api/vendors`);
+    dispatch(ac.fetchAllVendor(res.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+export const fetchVendorThunk = id => async dispatch => {
+  try {
+    let res = await axios.get(`/api/vendors/${id}`);
+    dispatch(ac.fetchVendor(res.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+//
+export const fetchAllManagementThunk = () => async (dispatch) => {
+  try {
+    let res = await axios.get(`/api/management`);
+    dispatch(ac.fetchAllManagement(res.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+export const fetchManagementThunk = id => async dispatch => {
+  try {
+    let res = await axios.get(`/api/management/${id}`);
+    dispatch(ac.fetchManagement(res.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
