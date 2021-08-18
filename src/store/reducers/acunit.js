@@ -2,6 +2,8 @@ import { FETCH_ACUNIT } from "../actions/actionTypes";
 
 const initialState = {
   histories: [],
+  Vendor: {},
+  Status: {},
 };
 
 const acunit = (state = initialState, action) => {

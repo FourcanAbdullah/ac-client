@@ -1,7 +1,9 @@
 import { FETCH_HISTORY } from "../actions/actionTypes";
 
 const initialState = {
-  ACUnit: {},
+  ACUnit: [],
+  Status: [],
+  Vendor: [],
 };
 
 // REDUCER;

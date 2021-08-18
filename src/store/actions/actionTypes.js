@@ -18,3 +18,18 @@ export const EDIT_HISTORY = "EDIT_HISTORY";
 
 //Single HISTORY
 export const FETCH_HISTORY = "FETCH_HISTORY";
+
+//all Status
+export const FETCH_ALL_STATUS = "FETCH_ALL_STATUS"
+//single status
+export const FETCH_STATUS = "FETCH_STATUS"
+//all VENDOR
+export const FETCH_ALL_VENDOR = "FETCH_ALL_VENDOR"
+//Single VENDOR
+export const FETCH_VENDOR = "FETCH_VENDOR"
+
+
+//all MANAGEMENT
+export const FETCH_ALL_MANAGEMENT = "FETCH_ALL_MANAGEMENT"
+//Single MANAGEMENT
+export const FETCH_MANAGEMENT = "FETCH_MANAGEMENT"
