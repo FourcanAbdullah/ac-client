@@ -70,7 +70,7 @@ const useStyles = makeStyles({
 //basically the same setup as ACunit view.
 const HistoryView = (props) => {
   const classes = useStyles();
-  const { allHistory, idArray } = props;
+  const { idArray } = props;
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(100);

@@ -43,13 +43,7 @@ export const editACUnitThunk = acunit => async dispatch => {
 
 //Single acunit
 export const fetchACUnitThunk = (ACUnitId) => async (dispatch) => {
-  // thunk creator would not an be async function 
-  // if using Promise.then:
-  // return axios
-  //   .get(`/api/campuses/${id}`)
-  //   .then((res) => res.data)
-  //   .then((campus) => dispatch(ac.fetchCampus(campus)))
-  //   .catch((err) => console.log(err));
+
   try {
     let res = await axios.get(`/api/acunits/${ACUnitId}`);
     dispatch(ac.fetchACUnit(res.data));
@@ -78,24 +72,7 @@ export const addHistoryThunk = (history) => async (dispatch) => {
   }
 };
 
-// export const deleteStudentThunk = studentId => async dispatch => {
-//   try {
-//     await axios.delete(`/api/students/${studentId}`);
-//     //delete succesful so change state with dispatch
-//     dispatch(ac.deleteStudent(studentId));
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
 
-// export const editStudentThunk = student => async dispatch => {
-//   try {
-//     let updatedStudent = await axios.put(`/api/students/${student.id}`, student);
-//     dispatch(ac.editStudent(updatedStudent));
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
 
 //Single student
 export const fetchHistoryThunk = id => async dispatch => {

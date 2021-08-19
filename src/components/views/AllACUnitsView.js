@@ -109,7 +109,7 @@ const AllACUnitsView = (props) => {
 
   if (!allACUnits.length) {     //if there are no ac units the just show buttons and message saying so.
     return (<div>
-      <img src={Logo} alt="this is car image" />
+      <img src={Logo} alt="this is CUNY SPS logo" />
       <Link to={`/newunit`}>
 
         <Button style={{ color: 'white', backgroundColor: '#003366', float: 'right' }}>Add A/C Unit</Button>

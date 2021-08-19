@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
@@ -72,7 +71,7 @@ const useStyles = makeStyles({
 
 const ACUnitView = (props) => {
   const classes = useStyles();
-  const { acunit, allHistory, unitId, idArray } = props;
+  const { idArray } = props;
 
   const [page, setPage] = React.useState(0);  //material ui table code recommendation for pages and rows per pages
   const [rowsPerPage, setRowsPerPage] = React.useState(100);
